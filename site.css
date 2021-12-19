@@ -1,0 +1,120 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #ff0074;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cuboid {
+  --width: 10vmax;
+  --height: 1.5vmax;
+  --depth: 15vmax;
+  height: var(--height);
+  width: var(--width);
+  transform: rotateX(150deg) rotateY(-25deg);
+  transform-style: preserve-3d;
+  position: relative;
+  margin-left: 50px;
+}
+
+.cuboid__side {
+  background-color: hsla(0, 0%, 100%, 0.5);
+  position: absolute;
+}
+
+.cuboid__side:after {
+  content: "";
+  background-color: black;
+  display: block;
+  border-radius: 25px;
+  -webkit-transform: translateZ(100px) scale(-1);
+  transform: translateZ(100px) scale(-1);
+}
+
+.cuboid__side:nth-of-type(1),
+.cuboid__side:nth-of-type(2) {
+  --coefficient: -0.5;
+  height: var(--height);
+  width: var(--width);
+  transform: translate3d(0, 0, calc(var(--depth) * var(--coefficient)));
+}
+
+.cuboid__side:nth-of-type(2) {
+  --coefficient: 0.5;
+  background: #48cae4;
+}
+
+.cuboid .cuboid__side:nth-of-type(3),
+.cuboid__side:nth-of-type(4) {
+  --rotation: 90deg;
+  height: var(--height);
+  width: var(--depth);
+  left: 50%;
+  top: 50%;
+  transform: translatex(-50%) translatey(-50%) rotateY(var(--rotation))
+    translate3d(0, 0, calc(var(--width) * -0.5));
+  background-color: #0096c7;
+}
+
+.cuboid__side:nth-of-type(4) {
+  --rotation: -90deg;
+  background-color: white;
+}
+
+.cuboid__side:nth-of-type(5),
+.cuboid__side:nth-of-type(6) {
+  --coefficient: -0.5;
+  --rotation: -90deg;
+  height: var(--depth);
+  width: var(--width);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotateX(var(--rotation))
+    translate3d(0, 0, calc(var(--height) * -0.5));
+}
+
+.cuboid__side:nth-of-type(5) {
+  background-color: #0077b6 !important;
+  background-color: #0077b6;
+  box-shadow: -2vmax 2vmax 20px rgba(0, 0, 0, 0.5);
+}
+
+.cuboid__side:nth-of-type(6) {
+  rotation: 90deg;
+
+  background-color: #0077b6;
+  transform: translate(-50%, -50%) rotateX(var(--rotation))
+    translate3d(0, 0, calc(var(--height) * 0.5));
+}
+
+.bck__img {
+  /*   background: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg"); */
+  z-index: 100;
+  width: 90%;
+  height: 80%;
+  background-size: fill;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#a1 {
+  margin-left: -200px;
+}
+
+#a2 {
+  margin-left: 250px;
+  margin-bottom: 30px;
+  margin-top: 120px;
+}
+
+#a3 {
+  margin-top: 100px;
+  margin-left: -300px;
+}
